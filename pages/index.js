@@ -9,12 +9,19 @@ import { TbDiscount2 } from "react-icons/tb";
 
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
+import AOS from 'aos';
+
+import 'aos/dist/aos.css'; 
+import { useEffect } from "react";
 
 // import styles from "../styles/Blog.module.css"
 
 // import Image from "next/image";
 
 export default function Home() {
+  useEffect(()=>{
+    AOS.init();
+  })
   return (
     <div>
       <Head>
@@ -26,16 +33,16 @@ export default function Home() {
       <style jsx>
         {`
           .bgimg1 {
-            background-image: url("/bgimg2.webp");
+            background-image: url("/clothsum.avif");
           }
           .bgimg2 {
-            background-image: url("/bgimg3.webp");
+            background-image: url("/holi5.jpg");
           }
           .bgimg3 {
             background-image: url("/bgimg4.webp");
           }
           .bgimg4 {
-            background-image: url("/bgimg5.webp");
+            background-image: url("/summer1.avif");
           }
           .bgimg5 {
             background-image: url("/bgimg6.webp");
@@ -47,10 +54,10 @@ export default function Home() {
             background-image: url("/bgimg8.webp");
           }
           .bgimg8 {
-            background-image: url("/bgimg9.webp");
+            background-image: url("/holi1.avif");
           }
           .bgimg9 {
-            background-image: url("/bgimg10.webp");
+            background-image: url("/sale1.avif");
           }
           .scroll1 {
             background-image: url("/scroll1.jpg");
@@ -59,13 +66,13 @@ export default function Home() {
             background-image: url("/scroll2.jpg");
           }
           .scroll3 {
-            background-image: url("/scroll4.jpg");
+            background-image: url("/holi6.jpg");
           }
           .scroll4 {
             background-image: url("/scroll10.webp");
           }
           .scroll5 {
-            background-image: url("/scroll6.jpg");
+            background-image: url("/summer.avif");
           }
           .scroll6 {
             background-image: url("/scroll7.jpg");
@@ -95,7 +102,7 @@ export default function Home() {
           <div className="scroll1 md:h-[530px] h-52 bg-clip-padding bg-contain md:scale-y-125 scale-y-175 bg-no-repeat bg-center"></div>
         </SplideSlide>
         <SplideSlide>
-          <div className="scroll5 md:h-[530px] h-52 bg-clip-padding  bg-contain md:scale-x-110 md:scale-y-100 scale-y-125  bg-no-repeat bg-center"></div>
+          <div className="scroll5 md:h-[530px] h-52 bg-clip-padding  bg-cover md:scale-x-100 md:scale-y-100 scale-y-125  bg-no-repeat bg-center"></div>
         </SplideSlide>
         <SplideSlide>
           <div className="scroll2 md:h-[530px] h-52 bg-clip-padding   bg-cover  bg-no-repeat bg-center"></div>
@@ -110,7 +117,7 @@ export default function Home() {
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 pt-10 pb-12 mx-auto">
-          <div className="flex flex-wrap w-full mb-10 flex-col items-center text-center">
+          <div className="flex flex-wrap w-full mb-10 flex-col items-center text-center" data-aos="zoom-in" data-aos-duration="3000">
             <h1 className="sm:text-3xl text-2xl  title-font mb-2 text-gray-900 font-bold font-serif">
               Shop Now In Trojanstore.com
             </h1>
@@ -120,20 +127,20 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap -m-4 ">
             <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
-              <div className="border border-gray-200 h-64 hover:animate-pulse p-6 shadow-black shadow-md rounded-lg bgimg1 bg-cover bg-center bg-clip-padding">
+              <div className="border border-gray-200 h-64 hover:animate-pulse p-6 shadow-black shadow-md rounded-lg bgimg1 bg-cover bg-center bg-clip-padding"  data-aos="fade-right" data-aos-duration="2000">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <GiWinterHat className="text-lg animate-ping" />
                 </div>
                 <h2 className="text-xl  text-black font-extrabold title-font mb-2">
-                  Winter Special Sale
+                  Summer Special Sale
                 </h2>
-                <div className="leading-relaxed text-black font-bold  text-base">
-                  <p>Dont Shiver In this winter</p>
-                  <p>Shop Now winter essentials at trojan store at low price</p>
-                </div>
+                <p className="leading-relaxed text-black font-bold  text-base ">
+                  All Variety of Summer clothes <br />
+                  Available at lower prices
+                </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="flip-up" data-aos-duration="2000">
               <div className="border border-gray-200 h-64 hover:animate-pulse  p-6 rounded-lg bgimg2 bg-contain bg-repeat-x  bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black text-blue-500 mb-4">
                   <FaTree className="text-lg animate-ping" />
@@ -146,34 +153,35 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-left" data-aos-duration="2000">
               <div className="border border-gray-200 h-64 hover:animate-pulse p-6 rounded-lg bgimg3 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <BsFillCalendarFill className="text-base animate-ping" />
                 </div>
-                <h2 className="text-xl text-black font-extrabold title-font mb-2">
+                <h2 className="text-xl text-white font-extrabold title-font mb-2">
                   New Year Sale
                 </h2>
-                <p className="leading-relaxed text-black font-bold text-base">
-                  Greeting cards are available at low price
+                <p className="leading-relaxed text-white font-bold text-base">
+                  Decorate your house with new <br />
+                  HouseHold Products at discounted prices
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-right" data-aos-duration="2000">
               <div className="border border-gray-200 h-64  hover:animate-pulse p-6 rounded-lg bgimg4 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <MdFestival className="text-lg animate-ping" />
                 </div>
                 <h2 className="text-xl text-black font-extrabold title-font mb-2">
-                  Pongal Special Sale
+                  Summer Special Sale
                 </h2>
                 <p className="leading-relaxed text-black font-bold text-base">
-                  <p>Make the house decorated for this pongal</p>
-                  <p>All HouseHold Products at discounted prices</p>
+                  
+                  All HouseHold Products at discounted prices
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="flip-down" data-aos-duration="2000">
               <div className="border border-gray-200 h-64  hover:animate-pulse p-6 rounded-lg bgimg5 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <FaGifts className="text-lg animate-ping" />
@@ -181,13 +189,13 @@ export default function Home() {
                 <h2 className="text-xl text-black font-extrabold title-font mb-2">
                   Special Gifts
                 </h2>
-                <div className="leading-relaxed text-black font-bold text-base">
-                  <p>Special Gifts for Special People</p>
-                 <p>Make the loved ones happy</p>
-                </div>
+                <p className="leading-relaxed text-black font-bold text-base">
+                  Special Gifts for Special People <br />
+                  Make the loved ones happy
+                </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-left" data-aos-duration="2000">
               <div className="border border-gray-200 h-64 hover:animate-pulse p-6 rounded-lg bgimg6 bg-cover  bg-top bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <BsFillPeopleFill className="text-lg animate-ping" />
@@ -196,12 +204,12 @@ export default function Home() {
                   Family Shopping
                 </h2>
                 <p className="leading-relaxed text-black font-bold text-base">
-                  <p>Shop now at Trojan Store</p> 
-                 <p> All type of products are available at one place</p>
+                  Shop now at Trojan Store <br />
+                  All type of products are available at one place
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-right" data-aos-duration="2000">
               <div className="border border-gray-200 h-64  hover:animate-pulse p-6 rounded-lg bgimg7 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <GiLovers className="text-lg animate-ping" />
@@ -214,7 +222,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="flip-up" data-aos-duration="2000">
               <div className="border border-gray-200 h-64 hover:animate-pulse p-6 rounded-lg bgimg8 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <FaTree className="text-lg animate-ping" />
@@ -223,15 +231,15 @@ export default function Home() {
                 <p className="leading-relaxed text-black font-semibold text-base"></p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
-              <div className="border border-gray-200 h-64  hover:animate-pulse p-6 rounded-lg bgimg9 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-left" data-aos-duration="2000">
+              <div className="border border-gray-200 h-64  hover:animate-pulse p-6 rounded-lg bgimg9 bg-contain  bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <TbDiscount2 className="text-2xl animate-ping" />
                 </div>
-                <h2 className="text-lg text-black font-bold title-font mb-2">
-                  Freedom Sale
+                <h2 className="text-lg text-white font-bold title-font mb-2">
+                  Friday Sale
                 </h2>
-                <p className="leading-relaxed text-black font-semibold text-base">
+                <p className="leading-relaxed text-white font-semibold text-base">
                   All Discounted Products
                 </p>
               </div>

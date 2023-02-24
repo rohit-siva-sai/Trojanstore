@@ -46,6 +46,9 @@ const Signup = () => {
       progress: undefined,
       theme: "dark",
     });
+    setTimeout(()=>{
+      router.push("/")
+    },1000)
   };
 
   return (

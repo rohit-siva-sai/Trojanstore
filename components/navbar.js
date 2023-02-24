@@ -23,11 +23,10 @@ const Navbar = ({
   const [dropdown, setDropdown] = useState(false);
   const [sidebar, setSidebar] = useState(false);
   const [details, setDetails] = useState("");
+  const [game, setGame] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-  
-
     let exempted = [
       "/checkout",
       "/orders",
@@ -49,7 +48,7 @@ const Navbar = ({
     if (localStorage.getItem("signup")) {
       setDetails(JSON.parse(localStorage.getItem("signup")));
     }
-  },[router]);
+  }, [router]);
 
   const toggleCart = () => {
     setSidebar(!sidebar);
@@ -62,6 +61,9 @@ const Navbar = ({
   const ref = useRef();
   return (
     <>
+    <span>
+      {game && <div className="text-white fixed right-10 font-medium font-serif top-[70px] rounded-md z-30 bg-gray-400 px-2" >This is a special game - click to play </div>   }
+    </span>
       <span>
         {dropdown && (
           <div
@@ -284,6 +286,28 @@ const Navbar = ({
         </div>
 
         <div className="cart absolute mx-5 right-0  font-bold  top-4 cursor-pointer flex space-x-2 md:space-x-4">
+         
+            <a
+              href="https://crossblocks.vercel.app/"
+             
+            >
+              <picture>
+                <img
+                  src="/cross.png"
+                  alt=""
+                  width={100}
+                  height={80}
+                  className="rounded-md mt-0 md:mt-3 hidden md:block"
+                  onMouseOver={() => {
+                    setGame(true);
+                  }}
+                  onMouseLeave={() => {
+                    setGame(false);
+                  }}
+                />
+              </picture>
+            </a>
+          
           <Link href="/about">
             <a href="">
               <button className="bg-blue-600 px-2 lg:py-2 py-1 ease-in-out mt-0 md:mt-3  rounded-md md:text-sm text-xs text-white">

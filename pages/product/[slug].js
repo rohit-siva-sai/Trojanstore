@@ -14,6 +14,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { BsFillStarFill, BsStarHalf } from "react-icons/bs";
 import { AiFillInstagram, AiFillYoutube, AiFillFacebook } from "react-icons/ai";
 import { FcLike } from "react-icons/fc";
+import AOS from 'aos';
+
+import 'aos/dist/aos.css'; 
 
 const array = [];
 const array1 = array.concat(
@@ -61,6 +64,9 @@ const Post = ({ addToCart, product, buyNow }) => {
       theme: "dark",
     });
   };
+  useEffect(()=>{
+    AOS.init()
+  })
 
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
@@ -81,7 +87,7 @@ const Post = ({ addToCart, product, buyNow }) => {
           theme="colored"
         />
         {product && (
-          <div className="container px-5 py-12 w-11/12 mx-auto">
+          <div className="container px-5 py-12 w-11/12 mx-auto" data-aos="zoom-in" data-aos-duration="2000" >
             <div className=" mx-auto flex flex-wrap ">
               <picture className="w-full object-cover lg:w-1/3 transition duration-700 ease-in-out hover:scale-110 scroll-smooth lg:h-fit lg:mt-6  px-12 rounded">
                 <img

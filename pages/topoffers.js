@@ -1,17 +1,25 @@
 import Link from "next/link";
 import { topoffers } from "../data/topoffers";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-skyblue.min.css";
+import AOS from 'aos';
+
+import 'aos/dist/aos.css'; 
+
+
 
 const Topoffers = ({ products }) => {
   const [days, setDays] = useState("");
   const [hours, setHours] = useState("");
   const [min, setMin] = useState("");
   const [sec, setSec] = useState("");
+  useEffect(()=>{
+    AOS.init();
+  })
 
   let countdown = () => {
-    let futuredate = new Date("24 december 2022");
+    let futuredate = new Date("24 march 2023");
     let currentdate = new Date();
     let mydate = futuredate - currentdate;
     // console.log(mydate);
@@ -42,7 +50,7 @@ const Topoffers = ({ products }) => {
             background-image: url("/offer6.webp");
           }
           .scroll5 {
-            background-image: url("/trojanhome1.webp");
+            background-image: url("/holi3.jpg");
           }
           .scroll6 {
             background-image: url("/offer1.webp");
@@ -84,7 +92,7 @@ const Topoffers = ({ products }) => {
           <div className="scroll1 md:h-[530px] h-52 bg-clip-padding  md:bg-cover bg-contain md:scale-y-100 scale-y-175 bg-no-repeat bg-center"></div>
         </SplideSlide>
         <SplideSlide>
-          <div className="scroll5 md:h-[530px] h-52 bg-clip-padding  bg-contain md:scale-x-110 md:scale-y-100 scale-y-125  bg-no-repeat bg-center"></div>
+          <div className="scroll5 md:h-[530px] h-52 bg-clip-padding  bg-contain  md:scale-x-100 md:scale-y-100 scale-y-125  bg-no-repeat bg-center"></div>
         </SplideSlide>
         <SplideSlide>
           <div className="scroll2 md:h-[530px] h-52 bg-clip-padding   bg-contain  bg-no-repeat bg-center"></div>
@@ -109,7 +117,7 @@ const Topoffers = ({ products }) => {
                     href={`/product/${products[item].slug}`}
                     key={products[item].slug}
                   >
-                    <div className="lg:w-1/5 md:w-1/2 p-4 w-full shadow-md lg:mx-6 lg:my-2 ">
+                    <div className="lg:w-1/5 md:w-1/2 p-4 w-full shadow-md lg:mx-6 lg:my-2 " data-aos="zoom-in" data-aos-duration="2000" >
                       <a className="block relative transition duration-700 ease-in-out hover:scale-110 scroll-smooth rounded overflow-hidden">
                         <picture>
                         <img

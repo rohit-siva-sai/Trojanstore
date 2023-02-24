@@ -1,8 +1,15 @@
 import Link from "next/link";
 import { clothes } from "../data/clothes";
 import React from "react";
+import AOS from 'aos';
+
+import 'aos/dist/aos.css'; 
+import { useEffect } from "react";
 
 const Fashion = ({ products }) => {
+  useEffect(()=>{
+    AOS.init()
+  })
   return (
     <div>
       <section className="text-gray-600 body-font  min-h-[80vh]">
@@ -17,7 +24,7 @@ const Fashion = ({ products }) => {
                     href={`/product/${products[item].slug}`}
                     key={products[item].slug}
                   >
-                    <div className="lg:w-1/5 md:w-1/2 p-4 w-full shadow-md lg:mx-6 lg:my-2 ">
+                    <div className="lg:w-1/5 md:w-1/2 p-4 w-full shadow-md lg:mx-6 lg:my-2 " data-aos="zoom-in-left"  data-aos-duration="2000" >
                       <a className="block relative transition duration-700 ease-in-out hover:scale-110 scroll-smooth  rounded overflow-hidden">
                         <picture>
                         <img
