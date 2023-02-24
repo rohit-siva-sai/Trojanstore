@@ -289,7 +289,7 @@ const Navbar = ({
          
             <a
               href="https://crossblocks.vercel.app/"
-             
+             target="blank"
             >
               <picture>
                 <img

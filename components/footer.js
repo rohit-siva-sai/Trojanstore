@@ -35,7 +35,7 @@ const Footer = () => {
             </p>
             <p className="mt-2 text-sm  ml-3 text-gray-500 leading-5"></p>
 
-            <a href="https://crossblocks.vercel.app/">
+            <a href="https://crossblocks.vercel.app/" target="blank"  >
               <picture>
                 <img
                   src="/cross.png"

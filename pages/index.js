@@ -127,7 +127,7 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap -m-4 ">
             <div className="xl:w-1/3 md:w-1/2 w-full  p-4 ">
-              <div className="border border-gray-200 h-64 hover:animate-pulse p-6 shadow-black shadow-md rounded-lg bgimg1 bg-cover bg-center bg-clip-padding"  data-aos="fade-right" data-aos-duration="2000">
+              <div className="border border-gray-200 h-64 hover:animate-pulse p-6 shadow-black shadow-md rounded-lg bgimg1 bg-cover bg-center bg-clip-padding"  data-aos="flip-down" data-aos-duration="2000">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <GiWinterHat className="text-lg animate-ping" />
                 </div>
@@ -153,7 +153,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-left" data-aos-duration="2000">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="flip-down" data-aos-duration="2000">
               <div className="border border-gray-200 h-64 hover:animate-pulse p-6 rounded-lg bgimg3 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <BsFillCalendarFill className="text-base animate-ping" />
@@ -167,7 +167,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-right" data-aos-duration="2000">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="flip-up" data-aos-duration="2000">
               <div className="border border-gray-200 h-64  hover:animate-pulse p-6 rounded-lg bgimg4 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <MdFestival className="text-lg animate-ping" />
@@ -195,7 +195,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-left" data-aos-duration="2000">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="flip-up" data-aos-duration="2000">
               <div className="border border-gray-200 h-64 hover:animate-pulse p-6 rounded-lg bgimg6 bg-cover  bg-top bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <BsFillPeopleFill className="text-lg animate-ping" />
@@ -209,7 +209,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-right" data-aos-duration="2000">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="flip-down" data-aos-duration="2000">
               <div className="border border-gray-200 h-64  hover:animate-pulse p-6 rounded-lg bgimg7 bg-cover bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <GiLovers className="text-lg animate-ping" />
@@ -231,7 +231,7 @@ export default function Home() {
                 <p className="leading-relaxed text-black font-semibold text-base"></p>
               </div>
             </div>
-            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="fade-left" data-aos-duration="2000">
+            <div className="xl:w-1/3 md:w-1/2 w-full  p-4 " data-aos="flip-down" data-aos-duration="2000">
               <div className="border border-gray-200 h-64  hover:animate-pulse p-6 rounded-lg bgimg9 bg-contain  bg-center bg-clip-padding shadow-black shadow-md">
                 <div className="w-10 h-10 inline-flex items-center justify-center  rounded-full bg-black  text-blue-500 mb-4">
                   <TbDiscount2 className="text-2xl animate-ping" />
