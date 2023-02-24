@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
       console.log(error);
       localStorage.clear();
     }
-  },[router]);
+  }, []);
 
   const saveCart = (newCart) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
@@ -60,8 +60,11 @@ function MyApp({ Component, pageProps }) {
     });
     if (Object.keys(cart).length === 0) {
       setKey(Math.random());
+      console.log(cart);
     }
     let newCart = cart;
+    console.log(newCart, "rohit");
+
     if (itemCode in cart) {
       newCart[itemCode].qty = cart[itemCode].qty + qty;
     } else {
@@ -165,7 +168,7 @@ function MyApp({ Component, pageProps }) {
         onLoaderFinished={() => setProgress(0)}
       />
 
-      {(
+      {
         <Navbar
           logout={logout}
           key={key}
@@ -176,7 +179,7 @@ function MyApp({ Component, pageProps }) {
           subTotal={subTotal}
           buyNow={buyNow}
         />
-      )}
+      }
 
       <Component
         cart={cart}

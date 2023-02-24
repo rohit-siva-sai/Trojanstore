@@ -11,7 +11,7 @@ const Fashion = ({ products }) => {
           <div className="flex flex-wrap -m-4 justify-center">
             
             {products &&
-              Object.keys(products).map((item) => {
+               Object.keys(products).map((item) => {
                 return (
                   <Link
                     passHref={true}
@@ -75,7 +75,7 @@ const Fashion = ({ products }) => {
 
 export async function getStaticProps({ params }) {
   return {
-    props: { products: home }, // will be passed to the page component as props
+    props: { products: home } // will be passed to the page component as props
   };
 }
 

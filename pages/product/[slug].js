@@ -38,8 +38,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const product = array1.filter((p) => p.slug === params.slug);
-  // console.log(product[0],"rohit siva sai");
+
+  console.log(params,"rohit siva sai")
+  const product = array1.filter((p) => p.slug === params.slug)
+  console.log(product,"rohit siva sai");
 
   return {
     props: { product: product[0] },
@@ -47,7 +49,7 @@ export async function getStaticProps({ params }) {
 }
 
 const Post = ({ addToCart, product, buyNow }) => {
-  const checkServiceability = async () => {
+  const checkServiceability =  () => {
     toast.success("Your pincode is serviceable", {
       position: "top-right",
       autoClose: 2000,
@@ -84,7 +86,7 @@ const Post = ({ addToCart, product, buyNow }) => {
               <picture className="w-full object-cover lg:w-1/3 transition duration-700 ease-in-out hover:scale-110 scroll-smooth lg:h-fit lg:mt-6  px-12 rounded">
                 <img
                 alt="ecommerce"
-                className="  "
+                className=" "
                 src={product.img}
               />
               </picture>

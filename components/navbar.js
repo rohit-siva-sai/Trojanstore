@@ -323,7 +323,7 @@ const Navbar = ({
           ref={ref}
           className={`sideCart lg:w-96 w-72  h-[100vh] overflow-y-scroll absolute top-0  bg-blue-200 p-10  transition-all  ${
             sidebar && cart ? "right-0" : "-right-96"
-          }  z-30  ${toggleCart}`}
+          }  z-30  `}
         >
           <span
             className="absolute top-2 right-7 text-2xl text-blue-600 w-1 "

@@ -3,6 +3,8 @@ import { grocery } from "../data/grocery";
 import React from "react";
 
 const Grocery = ({ products }) => {
+
+
   return (
     <div>
       <section className="text-gray-600 body-font  min-h-[80vh]">
