@@ -96,8 +96,8 @@ const Footer = () => {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <Link href="/">
-                    <a className="text-gray-600 hover:text-gray-800">
+                  <Link href="https://crossblocks.vercel.app">
+                    <a className=" hover:text-gray-800 text-red-500 font-bold ">
                       Payments
                     </a>
                   </Link>

@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
       console.log(error);
       localStorage.clear();
     }
-  }, []);
+  }, [router]);
 
   const saveCart = (newCart) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
