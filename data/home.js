@@ -180,8 +180,8 @@ export const home = [
         "size": "null",
         "rating": 4,
         "color": "null",
-        "orgprice": "",
-        "price": "",
+        "orgprice": "500",
+        "price": "359",
         "availableQty": 5,
         "createdAt": {
           "$date": {
