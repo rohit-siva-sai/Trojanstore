@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 
 import { Canvas } from '@react-three/fiber'
-import Experience from "../components/Experience.js";
+import Experience from "../components/experience";
 
 import styles from "../styles/About.module.css"
 
