@@ -5,15 +5,21 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BsFillLockFill } from "react-icons/bs";
 
-
+import Image from "next/image";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [details, setDetails] = useState('');
-  const [password, setPassword] = useState('');
-  const router = useRouter()
+  const [email, setEmail] = useState("");
+  const [details, setDetails] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  
+  async function handleGoogleSignin() {
+    signIn("google", { callbackUrl: "http://trojanstore.vercel.app" });
+  }
+  async function handleGithubSignin() {
+    signIn("github", { callbackUrl: "http://trojanstore.vercel.app" });
+  }
 
   const handleChange = (e) => {
     if (e.target.name == "email") {
@@ -28,15 +34,13 @@ const Login = () => {
     if (localStorage.getItem("signup")) {
       setDetails(JSON.parse(localStorage.getItem("signup")));
     }
-    const email1 = details.email
-    const pass1 = details.password
-    
-    
+    const email1 = details.email;
+    const pass1 = details.password;
+
     setEmail("");
 
     setPassword("");
     if (email1 == email && pass1 == password) {
-      
       toast.success("Login Successfully done", {
         position: "top-left",
         autoClose: 1500,
@@ -47,11 +51,10 @@ const Login = () => {
         progress: undefined,
         theme: "dark",
       });
-      setTimeout(()=>{
-        router.push("/")
-      },1000)
-    }
-    else{
+      setTimeout(() => {
+        router.push("/");
+      }, 1000);
+    } else {
       toast.error("Entered wrong Credentials", {
         position: "top-left",
         autoClose: 1500,
@@ -83,11 +86,11 @@ const Login = () => {
         <div className="w-full max-w-md space-y-8">
           <div>
             <picture>
-            <img
-              className="mx-auto h-12 w-auto"
-              src="/trojanlogo.jpg"
-              alt="Your Company"
-            />
+              <img
+                className="mx-auto h-12 w-auto"
+                src="/trojanlogo.jpg"
+                alt="Your Company"
+              />
             </picture>
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
               Sign in to your account
@@ -122,7 +125,6 @@ const Login = () => {
                   id="email"
                   name="email"
                   type="email"
-                  
                   required
                   className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                   placeholder="Email address"
@@ -138,7 +140,6 @@ const Login = () => {
                   id="password"
                   name="password"
                   type="password"
-                  
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
                   placeholder="Password"
@@ -180,16 +181,37 @@ const Login = () => {
                 className="group relative flex w-full justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  
-                  <BsFillLockFill/>
+                  <BsFillLockFill />
                 </span>
                 Sign in
               </button>
-          <p className="text-sm mt-1 text-gray-400">Sign-up before sign-in and enter details 2 times to sign-in</p>
-
+              <p className="text-sm mt-1 text-gray-400">
+                Sign-up before sign-in and enter details 2 times to sign-in
+              </p>
             </div>
           </form>
+          <div className="input-button rounded-md">
+          <button
+            type="button"
+            className="w-full border py-3 text-white flex justify-center gap-2 bg-blue-600 hover:bg-blue-700 rounded-lg "
+            onClick={handleGoogleSignin}
+          >
+            Sign in with Google{" "}
+            <Image src={"/google.png"} alt="" width={20} height={20} />
+          </button>
         </div>
+        <div className="input-button ">
+          <button
+            type="button"
+            className="w-full border py-3 text-white flex justify-center gap-2 hover:bg-blue-700  bg-blue-600 rounded-lg "
+            onClick={handleGithubSignin}
+          >
+            Sign in with Github{" "}
+            <Image src={"/github.png"} alt="" width={20} height={20} />
+          </button>
+        </div>
+        </div>
+       
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -5,6 +6,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 const MyAccount = () => {
   const router = useRouter();
+
+  const { data: session } = useSession();
+
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -38,14 +42,18 @@ const MyAccount = () => {
 
   useEffect(() => {
     const myuser = JSON.parse(localStorage.getItem("signup"));
-    if (!myuser) {
-      router.push("/");
-    }
+    // if (!myuser   ) {
+    //   router.push("/");
+    // }
     if (myuser) {
       setName(myuser.name);
       setEmail(myuser.email);
     }
-  },[router]);
+    else if(session) {
+      setName(session.user.name)
+      setEmail(session.user.email)
+    }
+  }, []);
 
   const handleUserSubmit = async () => {
     if (1) {

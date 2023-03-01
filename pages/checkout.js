@@ -6,6 +6,8 @@ import Head from "next/head";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
   const [name, setName] = useState("");
@@ -17,6 +19,8 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
   const [city, setCity] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [user, setUser] = useState({ value: null });
+  const { data: session } = useSession();
+  const router = useRouter()
 
   useEffect(() => {
     const myuser = JSON.parse(localStorage.getItem("signup"));
@@ -24,9 +28,12 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
       setUser(myuser);
       setName(myuser.name);
       setEmail(myuser.email);
-      
+    } else if(session) {
+      setUser(session);
+      setName(session.user.name);
+      setEmail(session.user.email);
     }
-  }, []);
+  },[router]);
 
   const handleChange = async (e) => {
     // console.log(user,email);
@@ -40,13 +47,11 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
     } else if (e.target.name == "address") {
       setAddress(e.target.value);
     } else if (e.target.name == "pincode") {
-      setPincode(e.target.value);  
-    }
-     else if (e.target.name == "state") {
-      setState(e.target.value);  
-    }
-     else if (e.target.name == "city") {
-      setCity(e.target.value);  
+      setPincode(e.target.value);
+    } else if (e.target.name == "state") {
+      setState(e.target.value);
+    } else if (e.target.name == "city") {
+      setCity(e.target.value);
     }
   };
   useEffect(() => {
@@ -97,7 +102,6 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
           content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
         />
       </Head>
-      
 
       <h1 className="font-bold text-center text-3xl my-8">Checkout</h1>
       <div className="md:w-10/12 mx-auto">
@@ -146,7 +150,6 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
                   className="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               )}
-              
             </div>
           </div>
         </div>
@@ -252,9 +255,7 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
               return (
                 <li key={k}>
                   <div className="item w-1/2 flex my-4">
-                    <div className="">
-                      {cart[k].name} 
-                    </div>
+                    <div className="">{cart[k].name}</div>
                     <div className="w-1/2  ml-auto flex items-center justify-center text-xl">
                       <AiFillMinusCircle
                         className="text-blue-600"
@@ -301,9 +302,10 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
               <BsFillCartCheckFill className="mt-1 mx-1 " />
               pay ₹ {subTotal}
             </button>
-            
           </Link>
-          <p hidden={!disabled} className="text-sm mt-2 ">Fill all the details to pay &gt; 5 characters each</p>
+          <p hidden={!disabled} className="text-sm mt-2 ">
+            Fill all the details to pay &gt; 5 characters each
+          </p>
         </div>
       </div>
     </div>

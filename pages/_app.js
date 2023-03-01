@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoadingBar from "react-top-loading-bar";
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
@@ -168,28 +169,30 @@ function MyApp({ Component, pageProps }) {
         onLoaderFinished={() => setProgress(0)}
       />
 
-      {
-        <Navbar
-          logout={logout}
-          key={key}
+      <SessionProvider session={pageProps.session}>
+        {
+          <Navbar
+            logout={logout}
+            key={key}
+            cart={cart}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+            clearCart={clearCart}
+            subTotal={subTotal}
+            buyNow={buyNow}
+          />
+        }
+
+        <Component
           cart={cart}
           addToCart={addToCart}
           removeFromCart={removeFromCart}
           clearCart={clearCart}
           subTotal={subTotal}
           buyNow={buyNow}
+          {...pageProps}
         />
-      }
-
-      <Component
-        cart={cart}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-        subTotal={subTotal}
-        buyNow={buyNow}
-        {...pageProps}
-      />
+      </SessionProvider>
 
       <Footer />
     </>
