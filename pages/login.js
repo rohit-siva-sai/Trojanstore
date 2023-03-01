@@ -15,10 +15,10 @@ const Login = () => {
   const router = useRouter();
 
   async function handleGoogleSignin() {
-    signIn("google", { callbackUrl: "http://trojanstore.vercel.app" });
+    signIn("google", { callbackUrl: "https://trojanstore.vercel.app" });
   }
   async function handleGithubSignin() {
-    signIn("github", { callbackUrl: "http://trojanstore.vercel.app" });
+    signIn("github", { callbackUrl: "https://trojanstore.vercel.app" });
   }
 
   const handleChange = (e) => {

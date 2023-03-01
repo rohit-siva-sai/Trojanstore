@@ -53,7 +53,7 @@ const MyAccount = () => {
       setName(session.user.name)
       setEmail(session.user.email)
     }
-  }, []);
+  }, [router]);
 
   const handleUserSubmit = async () => {
     if (1) {
