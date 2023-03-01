@@ -3,7 +3,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BsFillLockFill } from "react-icons/bs";
+import { BsFillLockFill,BsGoogle } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa";
+import { AiFillGoogleCircle } from "react-icons/ai";
 
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
@@ -82,7 +84,7 @@ const Login = () => {
         pauseOnHover
         theme="dark"
       />
-      <div className="flex md:min-h-[80vh] min-h-[70vh] items-start justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="flex md:min-h-[80vh] min-h-[70vh] items-start justify-center py-9 px-4 sm:px-6 lg:px-8">
         <div className="w-full max-w-md space-y-8">
           <div>
             <picture>
@@ -193,21 +195,21 @@ const Login = () => {
           <div className="input-button rounded-md">
           <button
             type="button"
-            className="w-full border py-3 text-white flex justify-center gap-2 bg-blue-600 hover:bg-blue-700 rounded-lg "
+            className="w-full border py-2 text-white text-md font-semibold flex justify-center gap-2 bg-blue-600 hover:bg-blue-700 rounded-lg "
             onClick={handleGoogleSignin}
           >
             Sign in with Google{" "}
-            <Image src={"/google.png"} alt="" width={20} height={20} />
+            <BsGoogle className="text-xl text-white" />
           </button>
         </div>
         <div className="input-button ">
           <button
             type="button"
-            className="w-full border py-3 text-white flex justify-center gap-2 hover:bg-blue-700  bg-blue-600 rounded-lg "
+            className="w-full border py-2 text-white text-md font-semibold flex justify-center gap-2 hover:bg-blue-700  bg-blue-600 rounded-lg "
             onClick={handleGithubSignin}
           >
             Sign in with Github{" "}
-            <Image src={"/github.png"} alt="" width={20} height={20} />
+            <FaGithub className="text-white text-2xl"  />
           </button>
         </div>
         </div>
