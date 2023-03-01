@@ -146,7 +146,7 @@ export default function Home() {
                   <FaTree className="text-lg animate-ping" />
                 </div>
                 <h2 className="text-xl text-black font-extrabold title-font mb-2">
-                  Christmas Sale
+                  Holi Sale
                 </h2>
                 <p className="leading-relaxed text-black font-bold text-base">
                   Special Gifts for Special Occassion
