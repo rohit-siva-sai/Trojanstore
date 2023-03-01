@@ -10,6 +10,8 @@ import {
 
 import { BsFillCartCheckFill, BsFillCartDashFill } from "react-icons/bs";
 import { MdAccountCircle } from "react-icons/md";
+import { getSession, signOut, useSession } from "next-auth/react";
+
 
 const Navbar = ({
   logout,
@@ -25,6 +27,7 @@ const Navbar = ({
   const [details, setDetails] = useState("");
   const [game, setGame] = useState(false);
   const router = useRouter();
+  const { data: session } = useSession();
 
   useEffect(() => {
     let exempted = [
@@ -315,7 +318,7 @@ const Navbar = ({
               </button>
             </a>
           </Link>
-          {!details.email && (
+          { (!details.email && !session) && (
             <Link href="/login">
               <a href="#">
                 <button className="bg-blue-600 px-2 md:-mr-4 -mr-2 lg:py-2 py-1 ease-in-out mt-0 md:mt-3  rounded-md md:text-sm text-xs text-white">
@@ -333,8 +336,8 @@ const Navbar = ({
             }}
           >
             {/* > */}
-            {details.email && (
-              <MdAccountCircle className="text-4xl md:my-3 ease-in-out  text-blue-600" />
+            {  ( details.email || session ) && (
+              <MdAccountCircle className="text-4xl md:my-2 ease-in-out text-blue-600 " />
             )}
           </span>
 

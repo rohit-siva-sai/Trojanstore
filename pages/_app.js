@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import LoadingBar from "react-top-loading-bar";
 import Head from "next/head";
 import { SessionProvider } from "next-auth/react";
+import { getSession, signOut, useSession } from "next-auth/react";
+
 
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
@@ -15,6 +17,7 @@ function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState({ value: null });
   const [key, setKey] = useState(0);
   const [progress, setProgress] = useState(0);
+  
 
   const router = useRouter();
 
@@ -92,8 +95,11 @@ function MyApp({ Component, pageProps }) {
       progress: undefined,
       theme: "dark",
     });
+    signOut()
+    
     router.push("/");
   };
+
 
   const clearCart = () => {
     setCart({});
