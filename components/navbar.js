@@ -12,7 +12,6 @@ import { BsFillCartCheckFill, BsFillCartDashFill } from "react-icons/bs";
 import { MdAccountCircle } from "react-icons/md";
 import { getSession, signOut, useSession } from "next-auth/react";
 
-
 const Navbar = ({
   logout,
 
@@ -64,9 +63,13 @@ const Navbar = ({
   const ref = useRef();
   return (
     <>
-    <span>
-      {game && <div className="text-white fixed right-10 font-medium font-serif top-[70px] rounded-md z-30 bg-gray-400 px-2" >This is a special game - click to play </div>   }
-    </span>
+      <span>
+        {game && (
+          <div className="text-white fixed right-10 font-medium font-serif top-[70px] rounded-md z-30 bg-gray-400 px-2">
+            This is a special game - click to play{" "}
+          </div>
+        )}
+      </span>
       <span>
         {dropdown && (
           <div
@@ -289,28 +292,24 @@ const Navbar = ({
         </div>
 
         <div className="cart absolute mx-5 right-0  font-bold  top-4 cursor-pointer flex space-x-2 md:space-x-4">
-         
-            <a
-              href="https://crossblocks.vercel.app/"
-             target="blank"
-            >
-              <picture>
-                <img
-                  src="/cross.png"
-                  alt=""
-                  width={100}
-                  height={80}
-                  className="rounded-md mt-0 md:mt-3 hidden md:block"
-                  onMouseOver={() => {
-                    setGame(true);
-                  }}
-                  onMouseLeave={() => {
-                    setGame(false);
-                  }}
-                />
-              </picture>
-            </a>
-          
+          <a href="https://crossblocks.vercel.app/" target="blank">
+            <picture>
+              <img
+                src="/cross.png"
+                alt=""
+                width={100}
+                height={80}
+                className="rounded-md mt-0 md:mt-3 hidden md:block"
+                onMouseOver={() => {
+                  setGame(true);
+                }}
+                onMouseLeave={() => {
+                  setGame(false);
+                }}
+              />
+            </picture>
+          </a>
+
           <Link href="/about">
             <a href="">
               <button className="bg-blue-600 px-2 lg:py-2 py-1 ease-in-out mt-0 md:mt-3  rounded-md md:text-sm text-xs text-white">
@@ -318,7 +317,7 @@ const Navbar = ({
               </button>
             </a>
           </Link>
-          { (!details.email && !session) && (
+          {!details.email && !session && (
             <Link href="/login">
               <a href="#">
                 <button className="bg-blue-600 px-2 md:-mr-4 -mr-2 lg:py-2 py-1 ease-in-out mt-0 md:mt-3  rounded-md md:text-sm text-xs text-white">
@@ -336,11 +335,16 @@ const Navbar = ({
             }}
           >
             {/* > */}
-            {  ( details.email || session ) && (
+            {(details.email || session) && (
               <MdAccountCircle className="text-4xl md:my-2 ease-in-out text-blue-600 " />
             )}
           </span>
 
+          {Object.keys(cart).length != 0 && (
+            <span className="absolute text-sm font-semibold  -top-2 md:-top-1 -right-3 bg-blue-500 px-2  rounded-full text-white  ">
+              {Object.keys(cart).length}
+            </span>
+          )}
           <AiOutlineShoppingCart
             className="text-4xl md:my-2 text-blue-500"
             onClick={toggleCart}
