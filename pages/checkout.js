@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
-import { BsFillCartCheckFill, BsFillCartDashFill } from "react-icons/bs";
+import { BsFillCartCheckFill, BsFillCartDashFill,BsCartXFill } from "react-icons/bs";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -33,7 +33,7 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
       setName(session.user.name);
       setEmail(session.user.email);
     }
-  },[router]);
+  },[]);
 
   const handleChange = async (e) => {
     // console.log(user,email);
@@ -80,6 +80,12 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
       theme: "dark",
     });
   };
+
+  const CancelOrder = ()=>{
+    clearCart()
+    router.push("/")
+    
+  }
 
   return (
     <div className="container m-auto mx-1">
@@ -292,20 +298,29 @@ const Checkout = ({ cart, clearCart, addToCart, removeFromCart, subTotal }) => {
           </ul>
           <span className="total font-bold">SubTotal: ₹ {subTotal}</span>
         </div>
-        <div className="mx-4">
-          <Link href="/checkout">
+        <div className="mx-4 flex space-x-4">
+          {/* <Link href="/checkout"> */}
             <button
               disabled={disabled}
               onClick={initiatePayment}
               className=" disabled:bg-blue-300  text-white text-md bg-blue-500 border-0 py-1 px-2 focus:outline-none hover:bg-blue-600 rounded  flex "
             >
               <BsFillCartCheckFill className="mt-1 mx-1 " />
-              pay ₹ {subTotal}
+              Pay ₹ {subTotal}
             </button>
-          </Link>
-          <p hidden={!disabled} className="text-sm mt-2 ">
+            <button
+             
+             onClick={CancelOrder}
+             className=" disabled:bg-blue-300  text-white text-md bg-blue-500 border-0 py-1 px-2 focus:outline-none hover:bg-blue-600 rounded  flex "
+           >
+             <BsCartXFill className="mt-1 mx-1" />
+             Cancel Order 
+           </button>
+          {/* </Link> */}
+          {/* <p hidden={!disabled} className="text-sm mt-2 ">
             Fill all the details to pay &gt; 5 characters each
-          </p>
+          </p> */}
+         
         </div>
       </div>
     </div>
