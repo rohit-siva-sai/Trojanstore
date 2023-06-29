@@ -45,7 +45,7 @@ const Navbar = ({
       "/about",
     ];
     if (exempted.includes(router.pathname)) {
-      setSidebar(false);
+      setSidebar(false)
     }
     if (localStorage.getItem("signup")) {
       setDetails(JSON.parse(localStorage.getItem("signup")));

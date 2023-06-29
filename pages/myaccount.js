@@ -41,7 +41,7 @@ const MyAccount = () => {
   };
 
   useEffect(() => {
-    const myuser = JSON.parse(localStorage.getItem("signup"));
+    const myuser = JSON.parse(localStorage.getItem("signup"))
     // if (!myuser   ) {
     //   router.push("/");
     // }
